@@ -54,7 +54,7 @@ kafkacat -P -b 192.168.1.167:9092 -t test
 
 ## Kafka UI
 
-UI to browse topics is available at http://KAFKA_ADVERTISED_HOST_NAME:8000/ in our case - http://192.168.1.167:8000/
+UI to browse topics is available at http://KAFKA_ADVERTISED_HOST_NAME:8000/ in our case - [here](http://192.168.1.167:8000/)
 
 ## Gotchas
 
