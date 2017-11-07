@@ -66,3 +66,11 @@ docker ps -a
 
 docker rm _zookeeper container_ _kafka container_
 ```
+
+Or simply run
+
+```bash
+cd dev-tools
+
+./clearKafka.sh
+```
