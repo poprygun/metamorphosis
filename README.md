@@ -8,13 +8,19 @@ cd dev-tools
 /runKafka.sh
 ```
 
-2. Start Consumer Application
+2. Get host IP.  It will be used to connect to Kafka broker and specified in `docker.kafka.host` 
+
+```bash
+ipconfig getifaddr en0
+```
+
+3. Start Consumer Application
 
 ```bash
 java -jar -Ddocker.kafka.host=192.168.1.167 consumer/target/consumer-0.0.1-SNAPSHOT-spring-boot.jar
 ```
 
-3. Start Producer Application
+4. Start Producer Application
 
 ```bash
 java -jar -Ddocker.kafka.host=192.168.1.167 producer/target/producer-0.0.1-SNAPSHOT-spring-boot.jar
