@@ -32,14 +32,4 @@ public class ConsumerApplication {
 			log.info("Received: {}", message);
 		}
 	}
-
-	@Data
-	@AllArgsConstructor
-	@NoArgsConstructor
-	@ToString
-	static class ChatMessage {
-		private String message;
-		private Instant when;
-	}
-
 }

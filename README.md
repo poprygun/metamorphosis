@@ -39,6 +39,10 @@ Set **KAFKA_ADVERTISED_HOST_NAME** environment variable defined in docker-compos
 
 docker-compose -f docker-compose.yml up
 
+# Producer UI
+
+Navigate to [Producer UI](http://localhost:8081/send) to send a message after starting kafka.  
+
 
 ### List topics
 
