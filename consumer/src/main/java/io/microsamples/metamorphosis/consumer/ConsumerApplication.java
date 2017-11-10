@@ -1,18 +1,16 @@
 package io.microsamples.metamorphosis.consumer;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Configuration;
+import reactor.core.publisher.Flux;
 
-import java.time.Instant;
+import java.util.function.Consumer;
 
 @SpringBootApplication
 @Slf4j
@@ -26,10 +24,11 @@ public class ConsumerApplication {
 	@Configuration
 	public class MessageHandler {
 
-		@StreamListener(Sink.INPUT)
-		public void handle(final ChatMessage message) {
+		@StreamListener
+		public void handle(@Input(Sink.INPUT) Flux<ChatMessage> messages) {
 
-			log.info("Received: {}", message);
+			messages.log().subscribe(chatMessage -> log.info("Received: {}", chatMessage));
+
 		}
 	}
 }
